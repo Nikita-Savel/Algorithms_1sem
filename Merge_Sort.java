@@ -21,35 +21,35 @@ public class Merge_Sort{
             return null;
         }
         int median = arr.length / 2;
-        int[] leftarr = new int[median];
-        int[] rightarr = new int[arr.length - median];
+        int[] leftArr = new int[median];
+        int[] rightArr = new int[arr.length - median];
         for (int i = 0; i < median; i++) {
-            leftarr[i] = arr[i];
+            leftArr[i] = arr[i];
         }
         for (int j = median; j < arr.length; j++) {
-            rightarr[j - median] = arr[j];
+            rightArr[j - median] = arr[j];
         }
-        Mer(leftarr);
-        Mer(rightarr);
-        return Merge(arr, leftarr, rightarr, median, arr.length - median);
+        Mer(leftArr);
+        Mer(rightArr);
+        return Merge(arr, leftArr, rightArr, median, arr.length - median);
     }
 
-    public static int[] Merge(int[] massiv, int[] leftpart, int[] rightpart, int lenleftpart, int lenrightpart) {
-        int indexleftpart = 0;
-        int indexrightpart = 0;
-        int indexmassiva = 0;
-        while (indexleftpart < lenleftpart && indexrightpart < lenrightpart) {
-            if (leftpart[indexleftpart] < rightpart[indexrightpart]) {
-                massiv[indexmassiva++] = leftpart[indexleftpart++];
+    public static int[] Merge(int[] massiv, int[] leftPart, int[] rightPart, int lenLeftPart, int lenRightPart) {
+        int indexLeftPart = 0;
+        int indexRightPart = 0;
+        int indexMassiva = 0;
+        while (indexLeftPart < lenLeftPart && indexRightPart < lenRightPart) {
+            if (leftPart[indexLeftPart] < rightPart[indexRightPart]) {
+                massiv[indexMassiva++] = leftPart[indexLeftPart++];
             } else {
-                massiv[indexmassiva++] = rightpart[indexrightpart++];
+                massiv[indexMassiva++] = rightPart[indexRightPart++];
             }
         }
-        while (indexleftpart < lenleftpart) {
-            massiv[indexmassiva++] = leftpart[indexleftpart++];
+        while (indexLeftPart < lenLeftPart) {
+            massiv[indexMassiva++] = leftPart[indexLeftPart++];
         }
-        while (indexrightpart < lenrightpart) {
-            massiv[indexmassiva++] = rightpart[indexrightpart++];
+        while (indexRightPart < lenRightPart) {
+            massiv[indexMassiva++] = rightPart[indexRightPart++];
         }
         return massiv;
     }
