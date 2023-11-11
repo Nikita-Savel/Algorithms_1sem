@@ -10,12 +10,12 @@ public class MergeSort{
         for (int i = 0; i < arr.length; i++) {
             arr[i] = Integer.parseInt(input[i]);
         }
-        int arr1[] = Mer(arr);
+        int arr1[] = mer(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr1[i] + " ");
         }
     }
-    public static int[] Mer(int[] arr) {
+    public static int[] mer(int[] arr) {
         
         if (arr.length < 2) {
             return null;
@@ -29,12 +29,12 @@ public class MergeSort{
         for (int j = median; j < arr.length; j++) {
             rightArr[j - median] = arr[j];
         }
-        Mer(leftArr);
-        Mer(rightArr);
-        return Merge(arr, leftArr, rightArr, median, arr.length - median);
+        mer(leftArr);
+        mer(rightArr);
+        return merge(arr, leftArr, rightArr, median, arr.length - median);
     }
 
-    public static int[] Merge(int[] massiv, int[] leftPart, int[] rightPart, int lenLeftPart, int lenRightPart) {
+    public static int[] merge(int[] massiv, int[] leftPart, int[] rightPart, int lenLeftPart, int lenRightPart) {
         int indexLeftPart = 0;
         int indexRightPart = 0;
         int indexMassiva = 0;
